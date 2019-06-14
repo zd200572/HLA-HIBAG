@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library(HIBAG)\n\ntrained.Rdata = \"Asian-HLA4-hg19.RData\"\n\n# Load the published parameter estimates from European ancestry\nload(trained.Rdata)\nA.model <- hlaModelFromObj(HLA4[['A']])\nB.model <- hlaModelFromObj(HLA4[['B']])\nC.model <- hlaModelFromObj(HLA4[['C']])\nDRB1.model <- hlaModelFromObj(HLA4[['DRB1']])\nDQA1.model <- hlaModelFromObj(HLA4[['DQA1']])\nDQB1.model <- hlaModelFromObj(HLA4[['DQB1']])\nDPB1.model <- hlaModelFromObj(HLA4[['DPB1']])\nrm('HLA4')\n\n# Import your PLINK BED file\nyourgeno <- hlaBED2Geno(bed.fn=\"zjd.bed\", fam.fn=\"zjd.fam\", bim.fn=\"zjd.bim\")\nsummary(yourgeno)\n\n# HLA imputation at HLA-A\n\nA.guess <- predict(A.model, yourgeno, type=\"response+prob\",match.type='Position')\n\n\nB.guess <- predict(B.model, yourgeno, type=\"response+prob\",match.type='Position')\n\n\nC.guess <- predict(C.model, yourgeno, type=\"response+prob\",match.type='Position')\n\nDRB1.guess <- predict(DRB1.model, yourgeno, type=\"response+prob\",match.type='Position')\n\nDQA1.guess <- predict(DQA1.model, yourgeno, type=\"response+prob\",match.type='Position')\n\nDQB1.guess <- predict(DQB1.model, yourgeno, type=\"response+prob\",match.type='Position')\n\nDPB1.guess <- predict(DPB1.model, yourgeno, type=\"response+prob\",match.type='Position')\nwrite.csv(\n  data.frame(A_allele1=A.guess$value$allele1, A_allele2=A.guess$value$allele2, A_prob=A.guess$value$prob,\n             B_allele1=B.guess$value$allele1, B_allele2=B.guess$value$allele2, B_prob=B.guess$value$prob,\n             C_allele1=C.guess$value$allele1, C_allele2=C.guess$value$allele2, C_prob=C.guess$value$prob,\n             DRB1_allele1=DRB1.guess$value$allele1, DRB1_allele2=DRB1.guess$value$allele2, DRB1_prob=DRB1.guess$value$prob,\n             DQA1_allele1=DQA1.guess$value$allele1, DQA1_allele2=DQA1.guess$value$allele2, DQA1_prob=DQA1.guess$value$prob,\n             DQB1_allele1=DQB1.guess$value$allele1, DQB1_allele2=DQB1.guess$value$allele2, DQB1_prob=DQB1.guess$value$prob,\n             DPB1_allele1=DPB1.guess$value$allele1, DPB1_allele2=DPB1.guess$value$allele2, DPB1_prob=DPB1.guess$value$prob),\n  file='HIBAG_output.csv', row.names=FALSE)\n",
+    "created" : 1560413576198.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3484107720",
+    "id" : "CAE2D271",
+    "lastKnownWriteTime" : 1560221182,
+    "last_content_update" : 1560221182,
+    "path" : "/Volumes/MacOS/BioData/R/HIBAG/hla-hibag-github.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

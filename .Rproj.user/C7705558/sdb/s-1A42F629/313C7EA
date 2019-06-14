@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "paste(\"Asian\", sep = \"\", \"-HLA4-hg19.RData\")\npaste()\ndownload.file(url = 'http://public-html.biostat.washington.edu/~bsweir/HIBAG/param/Asian-HLA4-hg19.RData', destfile = 'Asian-HLA4-hg19.RData')\npaste('zd200572@126.com.txt', '.bed',sep = \"\")\n",
+    "created" : 1560414621375.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "1270188309",
+    "id" : "313C7EA",
+    "lastKnownWriteTime" : 6,
+    "last_content_update" : 1560484237976,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

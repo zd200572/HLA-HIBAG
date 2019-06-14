@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#install.packages(\"radmixture\")\n# This is a Shiny web application. You can run the application by clicking\n# the 'Run App' button above.\n#\n# Find out more about building applications with Shiny here:\n#\n#    http://shiny.rstudio.com/\n# download.file(url = 'https://github.com/wegene-llc/radmixture/raw/master/data/globe4.alleles.RData', destfile = 'globe4.alleles.RData')\n# download.file(url = 'https://github.com/wegene-llc/radmixture/raw/master/data/globe4.4.F.RData', destfile = 'globe4.4.F.RData')\n\n\nlibrary(shiny)\nlibrary(radmixture)\n# Define UI for application that draws a histogram\nui <- fluidPage(\n  \n  # Application title\n  titlePanel(\"祖源分析小工具\"),\n  \n  # Sidebar with a slider input for number of bins \n  sidebarLayout(\n    sidebarPanel(\n       fileInput(\"file1\", \"Choose txt File\",\n                multiple = FALSE,\n                accept = c(\"text/csv\", \"text/comma-separated-values,text/plain\", \".txt\")),\n      tags$hr(),\n      selectInput(\"variable\", \"请选择一种参考数据模型:\",\n                  list(\"K4(亚、欧、非和美洲印第安人模型)\" = \"globe4.4\", \n                       \"K7b（南亚、西亚、西伯利亚、非洲、Southern？、大西洋波罗的海和东亚人模型）\" = \"K7b\", \n                       \"world9（美洲印第安人、东亚、非洲、西伯利亚、大西洋波罗的海、澳大利亚、高佳索人模型）\" = \"world9\",\n                       \"E11（非洲、欧洲、印度、马来、傣族、彝族、中国东部和日本人模型）\" = \" E11\",\n                       \"K12b（格德罗西亚、西伯利亚、西北非、南亚、大西洋地中海、北欧、南亚、东非、东南亚、撒哈拉以南和东亚人模型）\" = \"K12b\",\n                       \"K13（西伯利亚、美洲印第安人、西非、古非洲、西南亚、东亚、地中海、澳大利亚、北极附近、西亚、北欧、南亚和东非人模型）\" = \"K13\"\n                  ))\n      #checkboxInput(\"outliers\", \"Show outliers\", FALSE)\n    ),\n    \n    # Show a plot of the generated distribution\n    mainPanel(\n      h4(\"你的祖源分析结果为:\"),\n      tableOutput(outputId = 'test')\n  )\n))\n\n# Define server logic required to calculate ancestry\nserver <- function(input, output) {\n  options(shiny.maxRequestSize=30*1024^2)\n  data1 <- 'globe4.4.alleles.RData'#input$var1.alleles.RData\n  load(data1)\n  data2 <- 'globe4.4.F.RData'#input$var1.F.RData\n  load(data2)\n  output$test <- renderTable({ \n    \"You have selected this\"\n    inFile <- input$file1\n    if(is.null(inFile))     \n      return(NULL) \n  res <- tfrdpub(read.table(inFile$datapath), 4, globe4.alleles, globe4.4.F)\n  ances <- fFixQN(res$g, res$q, res$f, tol = 1e-4, method = \"BR\", pubdata = \"K4\")\n  ances$q\n  })\n}\n# Run the application \nshinyApp(ui = ui, server = server)\n",
+    "created" : 1560481799084.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1775781278",
+    "id" : "3F9F0CC",
+    "lastKnownWriteTime" : 1559609674,
+    "last_content_update" : 1559609674,
+    "path" : "/Volumes/MacOS/BioData/R/Ancestry-app/ancestry-shiny/app.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

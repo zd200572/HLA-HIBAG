@@ -1,0 +1,12 @@
+PLINK v1.90b6.9 64-bit (4 Mar 2019)
+Options in effect:
+  --23file
+
+Hostname: zd200572deiMac.local
+Working directory: /Volumes/MacOS/Biosoft/plink_mac_20190304
+Start time: Sun May  5 15:53:12 2019
+
+Error: Missing --23file parameter.
+For more information, try 'plink --help <flag name>' or 'plink --help | more'.
+
+End time: Sun May  5 15:53:12 2019

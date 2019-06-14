@@ -1,0 +1,18 @@
+PLINK v1.90b6.9 64-bit (4 Mar 2019)
+Options in effect:
+  --23file /var/folders/6b/f4xk2qmd5mgbwx7z9x59px0c0000gn/T//Rtmp6geyXw/0e1bce881c8840758b45edb0/0.txt make-bed
+  --out test.txt
+  --snps-only no-DI
+
+Hostname: zd200572deiMac.local
+Working directory: /Volumes/MacOS/BioData/R/HLA-HIBAG
+Start time: Fri Jun 14 16:43:10 2019
+
+Warning: --snps-only 'no-DI' modifier has been changed to 'just-acgt', and now
+excludes all non-ACGT allele codes.
+Random number seed: 1560501790
+8192 MB RAM detected; reserving 4096 MB for main workspace.
+Error: Basic file conversions do not support regular filtering operations.
+Rerun your command with --make-bed.
+
+End time: Fri Jun 14 16:43:10 2019

@@ -1,0 +1,18 @@
+PLINK v1.90b6.9 64-bit (4 Mar 2019)
+Options in effect:
+  --23file /var/folders/6b/f4xk2qmd5mgbwx7z9x59px0c0000gn/T//Rtmp6geyXw/31065535ab806823719c9b63/0.txt make-bed
+  --out zd200572@126.com.txt
+
+Hostname: zd200572deiMac.local
+Working directory: /Volumes/MacOS/BioData/R/HLA-HIBAG
+Start time: Fri Jun 14 11:46:34 2019
+
+Random number seed: 1560483994
+8192 MB RAM detected; reserving 4096 MB for main workspace.
+--23file: zd200572@126.com.txt.bed + zd200572@126.com.txt.bim +
+zd200572@126.com.txt.fam written.
+75 variants with indel calls present.  '--snps-only no-DI' or
+--list-23-indels may be useful here.
+Inferred sex: female.
+
+End time: Fri Jun 14 11:46:34 2019
